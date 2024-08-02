@@ -1,6 +1,6 @@
 import express from 'express';
 import connectDB from './config/db.js';
-import dataRoutes from './routes/movieDataRoutes.js';
+// import dataRoutes from './routes/movieDataRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import movieRoute from './routes/dataRoutes.js';
 import errorHandler from './utils/errorHandler.js';
@@ -17,7 +17,7 @@ connectDB();
 app.use(express.json());
 
 // Routes
-app.use('/api', dataRoutes);
+// app.use('/api', dataRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/data', movieRoute);
 
