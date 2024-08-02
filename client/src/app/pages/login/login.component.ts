@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import axios from 'axios';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,9 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
   formSubmitted: boolean = false;
-  showLoginBox: boolean = true; 
+  showLoginBox: boolean = true;
+
+  constructor() { }
 
   toggleForm() {
     this.showLoginBox = !this.showLoginBox;
@@ -22,18 +25,37 @@ export class LoginComponent {
       this.email = value;
     } else if (field === 'password') {
       this.password = value;
-    } 
+    }
   }
 
   onSubmit(event: Event) {
     event.preventDefault(); // Prevent the default form submission
 
     this.formSubmitted = true;
-    if (this.email && this.password ) {
-      // Handle login or registration logic here
-      console.log('Form Submitted', { email: this.email, password: this.password });
-      // You can hide the login box or navigate to another page here
-      this.showLoginBox = false; // Example action after successful submission
+    if (this.email && this.password) {
+      // Define the request body
+      const body = {
+        email: this.email,
+        password: this.password
+      };
+
+      // Make the POST request with Axios
+      axios.post('https://flet-nix-backend.vercel.app/api/auth/login', body, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          console.log('Response:', response.data);
+          // Handle response here (e.g., save token, navigate to another page, etc.)
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          // Handle error here (e.g., show error message to user)
+        });
+
+      // Example action after successful submission
+      this.showLoginBox = false;
     }
   }
 }

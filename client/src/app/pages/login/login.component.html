@@ -8,13 +8,13 @@
           <div>
             <label for="email" class="block text-sm font-medium text-white">Email</label>
             <input id="email" type="email" (input)="onInput($event, 'email')" placeholder="example@email.com" required
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              class="text-black mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             <p *ngIf="!email && formSubmitted" class="text-red-500 text-xs mt-1">Please enter a valid email</p>
           </div>
           <div>
             <label for="password" class="block text-sm font-medium text-white mt-4">Password</label>
             <input id="password" type="password" (input)="onInput($event, 'password')" placeholder="********" required
-              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+              class="text-black mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
             <p *ngIf="!password && formSubmitted" class="text-red-500 text-xs mt-1">Password is required</p>
           </div>
           <button type="submit" [disabled]="!email || !password"
