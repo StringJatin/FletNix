@@ -12,6 +12,7 @@ export class LoginComponent {
   password: string = '';
   formSubmitted: boolean = false;
   showLoginBox: boolean = true;
+  loading : boolean = false;
 
   constructor(private router: Router) { }
 
@@ -38,6 +39,7 @@ export class LoginComponent {
 
     this.formSubmitted = true;
     if (this.email && this.password) {
+      this.loading = true;
       // Define the request body
       const body = {
         email: this.email,
@@ -52,12 +54,17 @@ export class LoginComponent {
       })
         .then(response => {
           console.log('Response:', response.data);
+          localStorage.setItem('token',response.data?.token);
+          this.router.navigate(['/home']);
           // Handle response here (e.g., save token, navigate to another page, etc.)
         })
         .catch(error => {
           console.error('Error:', error);
           // Handle error here (e.g., show error message to user)
-        });
+        })
+        .finally(()=>{
+          this.loading  = false;
+        })
 
       // Example action after successful submission
       this.showLoginBox = false;
