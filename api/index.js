@@ -4,6 +4,8 @@ import connectDB from './config/db.js';
 import authRoutes from './routes/authRoutes.js';
 import movieRoute from './routes/dataRoutes.js';
 import errorHandler from './utils/errorHandler.js';
+import cors from 'cors'; // Import cors
+
 
 import dotenv from 'dotenv';
 dotenv.config();
@@ -14,6 +16,7 @@ const app = express();
 connectDB();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
