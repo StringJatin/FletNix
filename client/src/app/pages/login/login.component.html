@@ -24,7 +24,7 @@
         </form>
         <div class="mt-4 text-center text-muted-foreground">
           <ng-container>
-            Don't have an account? <span class="registerLink">Register</span>
+            Don't have an account? <span class="registerLink" (click)="navigateToRegister()">Register</span>
           </ng-container>
           <ng-template #registerLink>
             Already have an account? <button type="button" (click)="toggleForm()" class=" loginBtn">Login</button>

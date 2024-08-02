@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 
 @Component({
@@ -12,7 +13,7 @@ export class LoginComponent {
   formSubmitted: boolean = false;
   showLoginBox: boolean = true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   toggleForm() {
     this.showLoginBox = !this.showLoginBox;
@@ -26,6 +27,10 @@ export class LoginComponent {
     } else if (field === 'password') {
       this.password = value;
     }
+  }
+
+  navigateToRegister() {
+    this.router.navigate(['/register']);
   }
 
   onSubmit(event: Event) {
