@@ -1,36 +1,76 @@
-nav {
-    background-color: #333;
-    padding: 1rem;
-  }
-  
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .logo {
-    height: 40px; /* Adjust the size of the logo as needed */
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-  }
-  
-  li {
-    margin: 0 1rem;
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  a.active {
-    border-bottom: 2px solid yellow;
-  }
-  
+/* Navbar styling */
+.navbar {
+  background-color: black; /* Adjust as needed */
+  color: white;
+  padding: 0.5rem 1rem;
+  position: fixed;
+  top: 0; /* Ensure it sticks to the top */
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 50; /* Ensures it stays above other content */
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* .logo-container {
+  flex: 1;
+} */
+
+.logo {
+  height: 50px; /* Adjust as needed */
+}
+
+.nav-links {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-family: "Jost";
+  font-size: medium;
+}
+
+.nav-links a.active {
+  text-decoration: underline;
+}
+
+.profile-menu {
+  display: flex;
+  align-items: center;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 1rem;
+}
+
+.profile-icon {
+  height: 40px; /* Adjust as needed */
+  width: 40px; /* Adjust as needed */
+  border-radius: 50%;
+}
+
+.imgLogo{
+  height: 50px;
+  width:90px;
+}
