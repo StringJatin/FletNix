@@ -1,4 +1,4 @@
-<table class="table table-bordered border-primary">
+<!-- <table class="table table-bordered border-primary">
     <thead *ngIf="productList != null">
       <tr>
         <th scope="col">Id</th>
@@ -17,4 +17,142 @@
         <td>{{product.category}}</td>
       </tr>
     </tbody>
-  </table>
+  </table> -->
+
+  <div class="relative homePageMain flex size-full min-h-screen flex-col bg-black dark group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+    <div class="layout-container flex h-full grow flex-col">
+      <div class=" flex flex-1 justify-center py-5 px-2">
+        <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+          <div class="flex flex-wrap justify-between gap-3 p-4 searchDiv">
+            <p class="text-[#FFFFFF] text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Continue Watching</p>
+          </div>
+          <div class="p-2 @container">
+            <!-- <div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border border-[#434343] bg-black p-5 @[480px]:flex-row @[480px]:items-center">
+              <p class="text-[#FFFFFF] text-base font-bold leading-tight">Refine your search</p>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#FFFFFF] text-black text-sm font-medium leading-normal"
+              >
+                <span class="truncate">Apply</span>
+              </button>
+            </div> -->
+          </div>
+          <div class="flex gap-3 p-3 flex-wrap pr-4 navtabs">
+            <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
+              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">TV Shows</p>
+            </div>
+            <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
+              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">Movies</p>
+            </div>
+            <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
+              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">Documentaries</p>
+            </div>
+            <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
+              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">All</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/06b6c52a-e396-4d95-b2db-a5dc02b58334.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">The Matrix</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 16m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/b0284f49-8cec-4190-ab3b-c5cc49063775.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">The Office</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Series S1 E1 20m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/e1add611-7799-425d-905f-34fe37a3970b.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">A Beautiful Mind</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 15m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/e4c438a9-2647-4d19-94fe-e818e1b7986c.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">The Pursuit of Happyness</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 1h 57m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a5edb5ef-afe0-4fad-b4d9-644e10785293.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">The Great Gatsby</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 22m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/73991be6-aa79-4312-997b-ba19ca18e205.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">Pulp Fiction</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 34m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/19c80903-289c-49f9-b91c-77de668e8ea0.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">The Wolf of Wall Street</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 58m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/f4adaa35-487e-4340-adaf-ce32e7268d5f.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">Inception</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 28m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/a9715646-4a5b-4421-b08e-76fe9626161b.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">Forrest Gump</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 22m</p>
+              </div>
+            </div>
+            <div class="flex flex-col gap-3 pb-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-video bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/05f79354-e765-449e-91bf-0e4d034cb6d4.png");'
+              ></div>
+              <div>
+                <p class="text-[#FFFFFF] text-base font-medium leading-normal">Good Will Hunting</p>
+                <p class="text-[#CBCBCB] text-sm font-normal leading-normal">Movie 2h 7m</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

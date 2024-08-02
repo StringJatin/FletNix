@@ -1,3 +1,8 @@
-table{
-    margin-top: 75px;
+.navtabs{
+}
+
+.searchDiv{
+    margin-top: 0px !important;
+    margin-top: 24px;
+    padding: 1rem !important;
 }
