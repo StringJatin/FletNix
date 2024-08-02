@@ -1,0 +1,36 @@
+nav {
+    background-color: #333;
+    padding: 1rem;
+  }
+  
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logo {
+    height: 40px; /* Adjust the size of the logo as needed */
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+  }
+  
+  li {
+    margin: 0 1rem;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  a.active {
+    border-bottom: 2px solid yellow;
+  }
+  

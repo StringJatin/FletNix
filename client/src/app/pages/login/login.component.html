@@ -1,0 +1,36 @@
+<div class="flex mainBox min-h-screen items-center justify-center bg-gradient-to-br from-primary to-secondary">
+    <div class="w-50 max-w-md rounded-lg bg-background shadow-xl">
+      <div class="loginBox">
+        <img src="../../../assets/logo/Logos-Readability-Netflix-logo.png" class="imgLogo mb-6" />
+                <h2 class="mb-6 text-3xl flex justify-center font-bold text-primary-foreground">Welcome to FlixNet!</h2>
+        <h5 class="mb-6 text-3xl font-bold text-primary-foreground h6msg flex justify-center">Login or Register to continue.</h5>
+        <form class="space-y-4" (submit)="onSubmit($event)">
+          <div>
+            <label for="email" class="block text-sm font-medium text-white">Email</label>
+            <input id="email" type="email" (input)="onInput($event, 'email')" placeholder="example@email.com" required
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <p *ngIf="!email && formSubmitted" class="text-red-500 text-xs mt-1">Please enter a valid email</p>
+          </div>
+          <div>
+            <label for="password" class="block text-sm font-medium text-white mt-4">Password</label>
+            <input id="password" type="password" (input)="onInput($event, 'password')" placeholder="********" required
+              class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" />
+            <p *ngIf="!password && formSubmitted" class="text-red-500 text-xs mt-1">Password is required</p>
+          </div>
+          <button type="submit" [disabled]="!email || !password"
+            class="w-full px-4 py-2 text-white font-semibold rounded-md shadow-sm  mt-4 cursor-pointer loginBtn">
+            {{'Login' }}
+          </button>
+        </form>
+        <div class="mt-4 text-center text-muted-foreground">
+          <ng-container>
+            Don't have an account? <span class="registerLink">Register</span>
+          </ng-container>
+          <ng-template #registerLink>
+            Already have an account? <button type="button" (click)="toggleForm()" class=" loginBtn">Login</button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </div>
+  
