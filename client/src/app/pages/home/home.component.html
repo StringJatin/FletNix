@@ -44,16 +44,16 @@
           </div>
           <div class="flex gap-3 p-3  flex-wrap pr-4 navtabs">
             <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
-              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">TV Shows</p>
+              <p (click)="handleNavtabClick('TV Show')" class="text-[#FFFFFF] text-sm font-medium leading-normal m-0 cursor-pointer">TV Shows</p>
             </div>
             <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
-              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">Movies</p>
+              <p (click)="handleNavtabClick('Movie')" class="text-[#FFFFFF] text-sm font-medium leading-normal m-0 cursor-pointer">Movies</p>
             </div>
             <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
-              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">Documentaries</p>
+              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0 cursor-pointer">Documentaries</p>
             </div>
             <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
-              <p class="text-[#FFFFFF] text-sm font-medium leading-normal m-0">All</p>
+              <p (click)="handleNavtabClick('all')" class="text-[#FFFFFF] text-sm font-medium leading-normal m-0 cursor-pointer">All</p>
             </div>
           </div>
           <div class="p-4">

@@ -11,6 +11,7 @@ export class HomeComponent {
   selectedCategory: string = 'Movie';
   token: string | null = "";
   page: number = 1;
+  type : string = "";
 
   // Array of image URLs
   imageUrls: string[] = [
@@ -28,12 +29,12 @@ export class HomeComponent {
 
   ngOnInit() {
     this.token = localStorage.getItem("token");
-    this.getMovieList(this.page);
+    this.getMovieList(this.page,"");
   }
 
-  getMovieList = async (page: number) => {
+  getMovieList = async (page: number, type : string) => {
     try {
-      const result = await axios.get(`https://flet-nix-backend.vercel.app/api/data/movies?page=${page}`, {
+      const result = await axios.get(`https://flet-nix-backend.vercel.app/api/data/movies?page=${page}&type=${type}`, {
         headers: {
           "Authorization": "Bearer " + this.token
         }
@@ -60,13 +61,13 @@ export class HomeComponent {
   onCategoryChange(event: any) {
     this.selectedCategory = event.target.value;
     this.page = 1; // Reset to first page on category change
-    this.getMovieList(this.page); // Refresh movie list based on category change
+    this.getMovieList(this.page,this.type); // Refresh movie list based on category change
   }
 
   changePage(newPage: number) {
     if (newPage >= 1) {
       this.page = newPage;
-      this.getMovieList(this.page);
+      this.getMovieList(this.page,this.type);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
@@ -79,4 +80,18 @@ export class HomeComponent {
     }
     return pageNumbers;
   }
+
+ handleNavtabClick(tab : string){
+    if(tab === "all"){
+      this.type= "";
+    }
+    else if(tab === "Movie"){
+      this.type = "Movie";
+    }
+    else {
+      this.type = "TV Show";
+    }
+    this.page = 1;
+    this.getMovieList(this.page,this.type);
+ }
 }
