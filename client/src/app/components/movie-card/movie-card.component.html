@@ -1,6 +1,7 @@
 <div class="movie-card cursor-pointer">
     <div
       class="movie-card-image"
+      (click)="onClick()"
       [ngStyle]="{ 'background-image': 'url(' + movie.imageUrl + ')' }"
     ></div>
     <div class="movie-card-content">

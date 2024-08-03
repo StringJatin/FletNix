@@ -14,7 +14,8 @@ import { RatingComponent } from './components/rating/rating.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
-import { MovieCardComponent } from './components/movie-card/movie-card.component'; 
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
+import { MovieDescriptionComponent } from './pages/movie-description/movie-description.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { MovieCardComponent } from './components/movie-card/movie-card.component
     FeedbackComponent,
     RatingComponent,
     NavbarComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    MovieDescriptionComponent
   ],
   imports: [
     BrowserModule,

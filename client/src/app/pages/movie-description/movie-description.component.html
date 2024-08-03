@@ -1,0 +1,179 @@
+<div class="px-8 flex flex-1 justify-center bg-black py-5">
+    <div class="layout-content-container bg-black flex flex-col max-w-[960px] flex-1">
+      <div class="@container">
+        <div class="p-4">
+          <div
+            class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat rounded-xl items-start justify-end px-4 pb-10"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url('https://cdn.usegalileo.ai/sdxl10/e8f13dfb-b47a-4ace-a536-25e16e6ede9b.png');"
+          >
+            <div class="flex flex-col gap-2 text-left">
+              <h1 class="text-white text-4xl font-black leading-tight tracking-[-0.033em]">{{movie.title}}</h1>
+              <h2 class="text-white text-sm font-normal leading-normal">{{movie.release_year}} • {{movie.duration}} • 4K UHD • {{movie.rating}} </h2>
+            </div>
+            <div class="flex-wrap gap-3 flex">
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-white text-black text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Watch</span>
+              </button>
+              <button
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#333333] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">Trailer</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="@container">
+        <div class="gap-2 px-4 flex flex-wrap justify-start">
+          <div class="flex flex-col items-center gap-2 bg-black py-2.5 text-center w-20">
+            <div class="rounded-full bg-[#333333] p-2.5">
+              <div class="text-white" data-icon="Plus" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-white text-sm font-medium leading-normal">My List</p>
+          </div>
+          <div class="flex flex-col items-center gap-2 bg-black py-2.5 text-center w-20">
+            <div class="rounded-full bg-[#333333] p-2.5">
+              <div class="text-white" data-icon="FilmSlate" data-size="20px" data-weight="regular">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+                  <path d="M216,104H102.09L210,75.51a8,8,0,0,0,5.68-9.84l-8.16-30a15.93,15.93,0,0,0-19.42-11.13L35.81,64.74a15.75,15.75,0,0,0-9.7,7.4,15.51,15.51,0,0,0-1.55,12L32,111.56c0,.14,0,.29,0,.44v88a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V112A8,8,0,0,0,216,104ZM192.16,40l6,22.07-22.62,6L147.42,51.83Zm-66.69,17.6,28.12,16.24-36.94,9.75L88.53,67.37Zm-79.4,44.62-6-22.08,26.5-7L94.69,89.4ZM208,200H48V120H208v80Z"></path>
+                </svg>
+              </div>
+            </div>
+            <p class="text-white text-sm font-medium leading-normal">Trailer</p>
+          </div>
+        </div>
+      </div>
+      <p class="text-white  font-normal leading-normal pb-3 pt-1 px-4">
+        {{movie.description}}
+      </p>
+      <div class="text-sm font-medium text-center text-white border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+        <ul class="flex flex-wrap -mb-px cursor-pointer">
+            <li class="me-2 ">
+                <a (click)="setSelectedTab('youMayAlsoLike')"
+                   [ngClass]="{
+                       'inline-block p-4 rounded-t-lg': true, 
+                       'border-transparent text-white': selectedTab !== 'youMayAlsoLike', 
+                       'border-blue-600 text-white': selectedTab === 'youMayAlsoLike'
+                   }"
+                   aria-current="page">
+                  You May Also Like
+                </a>
+            </li>
+            <li class="me-2">
+                <a (click)="setSelectedTab('details')"
+                   [ngClass]="{
+                       'inline-block p-4 rounded-t-lg': true, 
+                       'border-transparent text-white': selectedTab !== 'details', 
+                       'border-blue-600 text-white': selectedTab === 'details'
+                   }">
+                  Details
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+      
+      <!-- Tab Content -->
+      <div *ngIf="selectedTab === 'youMayAlsoLike'" class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+        <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/stability/f87abdbc-af6a-4f11-a92c-5a54dd2b3155.png");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/sdxl10/380cef46-f25b-4383-94fa-82c0c8a3b30a.png");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/stability/74dd29e9-9f1a-43b0-9757-c464474c89e5.png");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/stability/3ec5d3c2-0efc-4668-84da-d49ea3f0cfbc.png");'
+              ></div>
+            </div>
+            <div class="flex flex-col gap-3">
+              <div
+                class="w-full bg-center bg-no-repeat aspect-[3/4] bg-cover rounded-xl"
+                style='background-image: url("https://cdn.usegalileo.ai/stability/9974b02e-1d55-46c8-a67a-308cc9e916d7.png");'
+              ></div>
+            </div>
+          </div>
+      </div>
+      
+    
+      
+      <div *ngIf="selectedTab === 'details'" class="px-4 py-2 text-white">
+        <!-- Movie Title -->
+        <h1 class="text-2xl font-bold pb-3">{{ movie.title }}</h1>
+      
+        <!-- Movie Description -->
+        <p class="text-base font-normal leading-normal pb-3">{{ movie.description }}</p>
+      
+        <!-- Additional Movie Details -->
+        <div class="pb-3">
+          <p><strong>Director:</strong> {{ movie.director }}</p>
+          <p><strong>Cast:</strong> {{ movie.cast }}</p>
+          <p><strong>Country:</strong> {{ movie.country }}</p>
+          <p><strong>Date Added:</strong> {{ movie.date_added }}</p>
+          <p><strong>Release Year:</strong> {{ movie.release_year }}</p>
+          <p><strong>Rating:</strong> {{ movie.rating }}</p>
+          <p><strong>Duration:</strong> {{ movie.duration }}</p>
+          <p><strong>Listed In:</strong> {{ movie.listed_in }}</p>
+        </div>
+      
+       
+      </div>
+      
+      <!-- <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Cast</h2>
+      <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 px-4">
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-24 h-32 bg-center bg-no-repeat bg-cover rounded-lg"
+            style='background-image: url("https://cdn.usegalileo.ai/sdxl10/67fba5b5-6d65-4700-90b7-f18570e63d6a.png");'
+          ></div>
+          <p class="text-white text-center text-sm font-bold leading-normal">Christian Bale</p>
+          <p class="text-[#CBCBCB] text-center text-xs font-medium leading-normal">Bruce Wayne</p>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-24 h-32 bg-center bg-no-repeat bg-cover rounded-lg"
+            style='background-image: url("https://cdn.usegalileo.ai/stability/ade869ae-0a46-4b0f-9ac6-3f1cb3003718.png");'
+          ></div>
+          <p class="text-white text-center text-sm font-bold leading-normal">Heath Ledger</p>
+          <p class="text-[#CBCBCB] text-center text-xs font-medium leading-normal">Joker</p>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-24 h-32 bg-center bg-no-repeat bg-cover rounded-lg"
+            style='background-image: url("https://cdn.usegalileo.ai/stability/1f7eaf5d-05a5-48d0-a4ed-b68d5dd55d95.png");'
+          ></div>
+          <p class="text-white text-center text-sm font-bold leading-normal">Aaron Eckhart</p>
+          <p class="text-[#CBCBCB] text-center text-xs font-medium leading-normal">Harvey Dent</p>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+          <div
+            class="w-24 h-32 bg-center bg-no-repeat bg-cover rounded-lg"
+            style='background-image: url("https://cdn.usegalileo.ai/stability/9f7f5446-38eb-46f2-a4ee-67b8d3b15f22.png");'
+          ></div>
+          <p class="text-white text-center text-sm font-bold leading-normal">Maggie Gyllenhaal</p>
+          <p class="text-[#CBCBCB] text-center text-xs font-medium leading-normal">Rachel Dawes</p>
+        </div>
+      </div> -->
+    </div>
+  </div>
+  

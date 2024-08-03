@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import axios from 'axios';
 import debounce from 'lodash/debounce';
 
@@ -33,6 +34,8 @@ export class HomeComponent {
   debouncedSearch = debounce((query: string) => {
     this.getMovieList(this.page, this.type, query);
   }, 1250);
+
+  constructor(private router: Router) {}
 
   ngOnInit() {
     this.token = localStorage.getItem("token");
@@ -110,5 +113,8 @@ export class HomeComponent {
  onSearchChange(event: any) {
   this.searchQuery = event.target.value;
   this.debouncedSearch(this.searchQuery);
+}
+navigateToMovieDescription(movieId: string) {
+  this.router.navigate(['/movie', movieId]);
 }
 }

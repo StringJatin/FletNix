@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-movie-card',
@@ -7,4 +7,11 @@ import { Component, Input } from '@angular/core';
 })
 export class MovieCardComponent {
   @Input() movie: any;
+  @Output() movieClick = new EventEmitter<string>();
+
+  onClick() {
+    if (this.movie && this.movie._id) {
+      this.movieClick.emit(this.movie._id);
+    }
+  }
 }
