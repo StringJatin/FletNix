@@ -1,27 +1,39 @@
-# RoutingDemo
+# FletNix
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.0.0.
+**FletNix** is an Angular-based web application designed for exploring and viewing a wide range of movies and TV shows. The application includes features such as user authentication, a search bar with debouncing, and filtering options.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- **User Authentication**: Users can log in or register. Authentication is managed using JWT tokens.
+- **Movie and TV Show Browsing**: Users can view a list of movies and TV shows. Clicking on a movie will provide a detailed description.
+- **Search Functionality**: Search movies by title and cast with debouncing to improve performance.
+- **Filtering**: Filter movies by type (TV shows or movies).
+- **Age-based Restrictions**: Users below the age of 18 cannot view R-rated movies.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Installation Guide
 
-## Build
+To set up and run the FletNix project on your local machine, follow these steps:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+1. **Clone the Repository**
 
-## Running unit tests
+   First, clone the repository to your local machine using Git:
+   ```bash
+   git clone https://github.com/StringJatin/FletNix.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+1. **Navigate to the Project Directory**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+  Change your working directory to the cloned project folder:
+  cd FletNix
+   Install Dependencies
 
-## Further help
+3. **Ensure you have Node.js and npm installed on your system**
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+  npm install
+Run the Application
+
+
+4. **Start the Angular development server to run the application**
+ng serve
+By default, the application will be served at http://localhost:4200. Open this URL in your web browser to view the application.
