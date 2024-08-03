@@ -23,18 +23,45 @@
     <div class="layout-container flex h-full grow flex-col">
       <div class=" flex flex-1 justify-center py-5 px-2">
         <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-          <div class="flex flex-wrap justify-between gap-3 p-4 searchDiv">
-            <p class="text-[#FFFFFF] text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">Continue Watching</p>
+          <div class="flex flex-wrap items-center justify-between gap-3 p-4 searchDiv">
+            <p class="text-[#FFFFFF] text-4xl font-black leading-tight tracking-[-0.033em] min-w-72">
+              Continue Watching
+            </p>
+            <div class="flex items-center bg-black p-2 rounded-xl shadow-lg hover:shadow-xl border border-gray-700">
+              <!-- Search Icon and Input Field -->
+              <div class="flex items-center bg-black text-white border-r border-gray-700 rounded-l-xl">
+                <div class="p-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  class="bg-black text-white outline-none p-2 min-w-64 rounded-r-none border-none"
+                />
+              </div>
+            
+              <!-- Category Dropdown -->
+              <div class="relative">
+                <select
+                  (change)="onCategoryChange($event)"
+                  class="bg-black text-white font-semibold cursor-pointer border-l border-gray-700 rounded-r-none p-2 mr-2"
+                >
+                  <option value="Movie">Movie</option>
+                  <option value="Cast">Cast</option>
+                </select>
+              </div>
+            
+              <!-- Search Button -->
+              <div class="bg-red-600 text-white font-semibold p-2 rounded-r-xl hover:shadow-lg transition duration-300 cursor-pointer">
+                <span>Search</span>
+              </div>
+            </div>
+            
           </div>
+          
           <div class="p-2 @container">
-            <!-- <div class="flex flex-1 flex-col items-start justify-between gap-4 rounded-xl border border-[#434343] bg-black p-5 @[480px]:flex-row @[480px]:items-center">
-              <p class="text-[#FFFFFF] text-base font-bold leading-tight">Refine your search</p>
-              <button
-                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-8 px-4 bg-[#FFFFFF] text-black text-sm font-medium leading-normal"
-              >
-                <span class="truncate">Apply</span>
-              </button>
-            </div> -->
           </div>
           <div class="flex gap-3 p-3 flex-wrap pr-4 navtabs">
             <div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-xl bg-[#333333] px-4">
