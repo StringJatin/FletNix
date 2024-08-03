@@ -60,22 +60,24 @@
             <div class="grid gap-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 movieCard">
               <app-movie-card *ngFor="let movie of productList" [movie]="movie"></app-movie-card>
             </div>
-            <div class=" flex justify-center p-2 bg-black">
+            <div class="flex justify-center p-2 bg-black cursor-pointer">
               <ul class="inline-flex bg-black -space-x-px text-sm">
                 <li>
-                  <a href="#" class="flex items-center no-underline justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-black border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><<</a>
+                  <a (click)="changePage(page - 1)" [class.disabled]="page <= 1" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-black border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"><<</a>
+                </li>
+                <li *ngFor="let p of getPageNumbers()">
+                  <a (click)="changePage(p)" [class.active-page]="p === page" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-[#E50914] border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
+                    {{p}}
+                  </a>
                 </li>
                 <li>
-                  <a href="#" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-black border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">1</a>
-                </li>
-                <li>
-                  <a href="#" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-black border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">2</a>
-                </li>
-                <li>
-                  <a href="#" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-black border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">>></a>
+                  <a (click)="changePage(page + 1)" class="flex items-center no-underline justify-center px-3 h-8 leading-tight text-gray-500 bg-black border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">>></a>
                 </li>
               </ul>
             </div>
+            
+            
+            
           </div>
 
           

@@ -28,16 +28,19 @@ export class HomeComponent {
 
   ngOnInit() {
     this.token = localStorage.getItem("token");
-    this.getMovieList();
+    this.getMovieList(this.page);
   }
 
-  getMovieList = async () => {
+  getMovieList = async (page: number) => {
     try {
-      let result = await axios.get('https://flet-nix-backend.vercel.app/api/data/movies' + `?Page=${this.page}`, {
+      const result = await axios.get(`https://flet-nix-backend.vercel.app/api/data/movies?page=${page}`, {
         headers: {
           "Authorization": "Bearer " + this.token
         }
       });
+
+      // Log the response to verify the data structure
+      console.log("Movies Data:", result.data);
 
       // Assign random images to the movies
       this.productList = result.data.map((movie: any) => ({
@@ -45,7 +48,7 @@ export class HomeComponent {
         imageUrl: this.getRandomImageUrl()
       }));
     } catch (err) {
-      console.log("Error Fetching Movies", err);
+      console.error("Error Fetching Movies", err);
     }
   }
 
@@ -56,5 +59,24 @@ export class HomeComponent {
 
   onCategoryChange(event: any) {
     this.selectedCategory = event.target.value;
+    this.page = 1; // Reset to first page on category change
+    this.getMovieList(this.page); // Refresh movie list based on category change
+  }
+
+  changePage(newPage: number) {
+    if (newPage >= 1) {
+      this.page = newPage;
+      this.getMovieList(this.page);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  getPageNumbers(): number[] {
+    // Simple pagination logic - display a few page numbers around the current page
+    const pageNumbers: number[] = [];
+    for (let i = Math.max(1, this.page - 2); i <= this.page + 2; i++) {
+      pageNumbers.push(i);
+    }
+    return pageNumbers;
   }
 }
