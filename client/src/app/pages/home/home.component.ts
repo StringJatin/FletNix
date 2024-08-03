@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import axios from 'axios';
+import debounce from 'lodash/debounce';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,8 @@ export class HomeComponent {
   token: string | null = "";
   page: number = 1;
   type : string = "";
+  hasMoreResults: boolean = true;
+  searchQuery: string = "";
 
   // Array of image URLs
   imageUrls: string[] = [
@@ -27,14 +30,18 @@ export class HomeComponent {
     "https://cdn.usegalileo.ai/sdxl10/05f79354-e765-449e-91bf-0e4d034cb6d4.png"
   ];
 
+  debouncedSearch = debounce((query: string) => {
+    this.getMovieList(this.page, this.type, query);
+  }, 1250);
+
   ngOnInit() {
     this.token = localStorage.getItem("token");
-    this.getMovieList(this.page,"");
+    this.getMovieList(this.page,this.type,"");
   }
 
-  getMovieList = async (page: number, type : string) => {
+  getMovieList = async (page: number, type: string, search: string) => {
     try {
-      const result = await axios.get(`https://flet-nix-backend.vercel.app/api/data/movies?page=${page}&type=${type}`, {
+      const result = await axios.get(`https://flet-nix-backend.vercel.app/api/data/movies?page=${page}&type=${type}&search=${search}`, {
         headers: {
           "Authorization": "Bearer " + this.token
         }
@@ -42,6 +49,11 @@ export class HomeComponent {
 
       // Log the response to verify the data structure
       console.log("Movies Data:", result.data);
+
+      // Check if there are fewer results than the page size (15)
+      if (result.data.length < 15) {
+        this.hasMoreResults = false; // No more results to load
+      }
 
       // Assign random images to the movies
       this.productList = result.data.map((movie: any) => ({
@@ -61,13 +73,13 @@ export class HomeComponent {
   onCategoryChange(event: any) {
     this.selectedCategory = event.target.value;
     this.page = 1; // Reset to first page on category change
-    this.getMovieList(this.page,this.type); // Refresh movie list based on category change
+    this.getMovieList(this.page,this.type,this.searchQuery); // Refresh movie list based on category change
   }
 
   changePage(newPage: number) {
     if (newPage >= 1) {
       this.page = newPage;
-      this.getMovieList(this.page,this.type);
+      this.getMovieList(this.page,this.type,this.searchQuery);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }
@@ -92,6 +104,11 @@ export class HomeComponent {
       this.type = "TV Show";
     }
     this.page = 1;
-    this.getMovieList(this.page,this.type);
+    this.getMovieList(this.page,this.type,this.searchQuery);
  }
+
+ onSearchChange(event: any) {
+  this.searchQuery = event.target.value;
+  this.debouncedSearch(this.searchQuery);
+}
 }

@@ -18,23 +18,8 @@
                   type="text"
                   placeholder="Search..."
                   class="bg-black text-white outline-none p-2 min-w-64 rounded-r-none border-none"
+                  (input)="onSearchChange($event)"
                 />
-              </div>
-            
-              <!-- Category Dropdown -->
-              <div class="relative">
-                <select
-                  (change)="onCategoryChange($event)"
-                  class="bg-black text-white font-semibold cursor-pointer border-l border-gray-700 rounded-r-none p-2 mr-2"
-                >
-                  <option value="Movie">Movie</option>
-                  <option value="Cast">Cast</option>
-                </select>
-              </div>
-            
-              <!-- Search Button -->
-              <div class="bg-red-600 text-white font-semibold p-2 rounded-r-xl hover:shadow-lg transition duration-300 cursor-pointer">
-                <span>Search</span>
               </div>
             </div>
             
