@@ -13,7 +13,8 @@ import { FeedbackComponent } from './components/feedback/feedback.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
+import { MovieCardComponent } from './components/movie-card/movie-card.component'; 
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { FormsModule } from '@angular/forms';
     ProductUpdatesComponent,
     FeedbackComponent,
     RatingComponent,
-    NavbarComponent
+    NavbarComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,

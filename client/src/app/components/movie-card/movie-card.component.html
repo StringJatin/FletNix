@@ -1,0 +1,12 @@
+<div class="movie-card cursor-pointer">
+    <div
+      class="movie-card-image"
+      [ngStyle]="{ 'background-image': 'url(' + movie.imageUrl + ')' }"
+    ></div>
+    <div class="movie-card-content">
+      <p class="movie-card-title">{{ movie.title }}</p>
+      <p class="movie-card-details">{{ movie.type }} {{ movie.duration }}</p>
+      <p class="movie-card-details">Rated {{ movie.rating }}</p>
+    </div>
+  </div>
+  
